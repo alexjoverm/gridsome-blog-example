@@ -1,0 +1,16 @@
+{
+  "name": "my-awesome-blog",
+  "private": true,
+  "scripts": {
+    "build": "gridsome build",
+    "develop": "gridsome develop",
+    "explore": "gridsome explore"
+  },
+  "dependencies": {
+    "gridsome": "^0.2.0"
+  },
+  "devDependencies": {
+    "@gridsome/source-filesystem": "^0.1.0",
+    "@gridsome/transformer-remark": "0.0.3"
+  }
+}
