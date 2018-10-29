@@ -5,12 +5,20 @@
         {{ post.node.title }}
       </g-link>
     </p>
+    <Pager :info="$page.posts.pageInfo"/>
   </Layout>
 </template>
 
 <page-query>
-query Posts {
-  posts: allPost {
+query Posts ($page: Int) {
+  posts: allPost (perPage: 2, page: $page) @paginate {
+    totalCount
+    pageInfo {
+      totalPages
+      currentPage
+      isFirst
+      isLast
+    }
     edges {
       node {
         title
@@ -22,5 +30,11 @@ query Posts {
 </page-query>
 
 <script>
-export default {};
+import { Pager } from "gridsome";
+
+export default {
+  components: {
+    Pager
+  }
+};
 </script>
